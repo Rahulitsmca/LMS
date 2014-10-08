@@ -1,0 +1,58 @@
+﻿<% include header.ejs%>
+<form method="post" action="/edit">
+    <div class="form-horizontal">
+        <h4>Edit Book</h4>
+        <hr />
+        <div class="form-group">
+            <label class="control-label col-md-2" for="isbn">ISBN</label>
+            <div class="col-md-10">
+                <input type="text" name="Isbn" maxlength="10" readonly="true" placeholder="ISBN" required title="<%=Books.Isbn%>" value="<%=Books.Isbn %>" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="title">Title</label>
+            <div class="col-md-10">
+                <input type="text" name="Title" maxlength="15" placeholder="Title" required value="<%=Books.Title %>" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Author">Author</label>
+            <div class="col-md-10">
+                <input type="text" name="author" maxlength="15" placeholder="Author" required value="<%=Books.Author %>" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Publisher">Publisher</label>
+            <div class="col-md-10">
+                <input type="text" name="publisher" maxlength="15" placeholder="Publisher" required value="<%=Books.Publisher %>" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Publication Date">Publication Date</label>
+            <div class="col-md-10">
+                <input type="date" name="publicationdate" required placeholder="Publication Date" value="<%=Books.PublicationDate.getFullYear()+'-'+((Books.PublicationDate.getMonth()*1+1)>9?(Books.PublicationDate.getMonth()*1+1):'0'+(Books.PublicationDate.getMonth()*1+1))+'-'+Books.PublicationDate.getDate() %>" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Genre">Genre</label>
+            <div class="col-md-10">
+                <input type="text" name="genre" maxlength="10" required placeholder="Genre" value="<%=Books.Genre %>" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Price">Price</label>
+            <div class="col-md-10">
+                <input type="number" name="price" max="10000" min="100" required placeholder="Price" value="<%=Books.Price %>" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Update" class="btn btn-default" />
+        </div>
+    </div>
+</form>
+<p>
+    <a href="/">Back To List</a>
+</p>
+<% include footer.ejs%>

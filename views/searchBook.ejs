@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Books</title>      
+</head>
+<body style="padding-top:0px">  
+    <% include header.ejs%>
+   <form method="post" action="/searchBook">
+    <div class="form-horizontal">
+        <h4>Search Book</h4>
+        <hr />
+       <table>
+           <tr>
+               <td><label class="control-label col-md-2" for="isbn">ISBN</label></td>
+               <td><input type="text" name="Isbn" maxlength="10" placeholder="ISBN" value="<%= Search.Isbn %>" /></td>
+               <td> <label class="control-label col-md-2" for="title">Title</label></td>
+               <td> <input type="text" name="Title" maxlength="15" placeholder="Title" value="<%= Search.Title %>" /></td>
+               <td><label class="control-label col-md-2" for="Author">Author</label></td>
+               <td><input type="text" name="author" maxlength="15" placeholder="Author" value="<%= Search.Author %>" /></td>
+               <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+               <td><input type="submit" value="Search" class="btn btn-default" /></td>             
+           </tr>
+       </table>   
+        </div>
+       </form>
+    <br />
+    <table class="table">
+        <tr>
+            <th>ISBN</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Publication Date</th>
+            <th>Genre</th>
+            <th>Price</th>
+            <th></th>
+        </tr>       
+           <% for(var i=0; i<Books.length; i++) {%>
+         <tr>
+            <td><%= Books[i].Isbn %></td>
+            <td><%= Books[i].Title %></td>
+	        <td><%= Books[i].Author %></td>
+	        <td><%= Books[i].Publisher %></td>
+	        <td><%= new Date(Books[i].PublicationDate).toLocaleDateString('en-US') %></td>
+	        <td><%= Books[i].Genre %></td>
+		    <td><%= Books[i].Price %></td>
+            <td>
+                <a href="./edit/<%= Books[i].Isbn %>" >Edit</a> |
+                <a href="./detail/<%= Books[i].Isbn %>">Details</a> |
+                <a href="./delete/<%= Books[i].Isbn %>">Delete</a>
+            </td>
+            <% } %>            
+        </tr>
+    </table>  
+    <p>
+    <a href="/">Back To List</a>
+</p>
+    <% include footer.ejs%>    
+</body>
+</html>
+

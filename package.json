@@ -1,0 +1,17 @@
+{
+  "name": "LibraryManagement",
+  "version": "0.0.0",
+  "description": "LibraryManagement",
+  "main": "server.js",
+  "author": {
+    "name": "rahul gupta",
+    "email": "rahulitsmca@gmail.com"
+  },
+  "dependencies": {
+    "connect": "^2.25.5",
+    "ejs": "^1.0.0",
+    "express": "^4.8.3",
+    "mongodb": "^1.4.8",
+    "mongoose": "^3.8.14"
+  }
+}

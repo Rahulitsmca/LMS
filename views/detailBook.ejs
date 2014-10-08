@@ -1,0 +1,38 @@
+﻿<% include header.ejs%>
+<h4>
+    Detail a Book</h4>
+<hr />
+<dl class="dl-horizontal">
+    <dt>ISBN </dt>
+    <dd>
+        <%=Books.Isbn %>
+    </dd>
+    <dt>Title </dt>
+    <dd>
+        <%=Books.Title %>
+    </dd>
+    <dt>Author </dt>
+    <dd>
+        <%=Books.Author %>
+    </dd>   
+    <dt>Publisher </dt>
+    <dd>
+        <%=Books.Publisher %>
+    </dd>
+    <dt>Publication Date </dt>
+    <dd>
+        <%=Books.PublicationDate.getFullYear()+'-'+((Books.PublicationDate.getMonth()*1+1)>9?(Books.PublicationDate.getMonth()*1+1):'0'+(Books.PublicationDate.getMonth()*1+1))+'-'+Books.PublicationDate.getDate() %></span>
+    </dd>
+    <dt>Genre </dt>
+    <dd>
+        <%=Books.Genre %>
+    </dd>
+    <dt>Price </dt>
+    <dd>
+        <%=Books.Price %>
+    </dd>
+</dl>
+<p>
+    <a href="/">Back To List</a>
+</p>
+<% include footer.ejs%>

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Books</title>      
+</head>
+<body style="padding-top:0px">  
+    <% include header.ejs%>
+    <table>
+        <tr>
+            <td> <a href="./create"><h2>Create New</h2></a></td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td><a href="./searchBook"><h2>Search Book</h2></a></td>
+        </tr>
+    </table>      
+    <table class="table">
+        <tr>
+            <th>ISBN</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Publication Date</th>
+            <th>Genre</th>
+            <th>Price</th>
+            <th></th>
+        </tr>       
+           <% for(var i=0; i<Books.length; i++) {%>
+   <tr>
+   <td><%= Books[i].Isbn %></td>
+    <td><%= Books[i].Title %></td>
+	 <td><%= Books[i].Author %></td>
+	  <td><%= Books[i].Publisher %></td>
+	   <td><%= new Date(Books[i].PublicationDate).toLocaleDateString('en-US') %></td>
+	    <td><%= Books[i].Genre %></td>
+		 <td><%= Books[i].Price %></td>
+          <td>
+                <a href="./edit/<%= Books[i].Isbn %>" >Edit</a> |
+                <a href="./detail/<%= Books[i].Isbn %>">Details</a> |
+                <a href="./delete/<%= Books[i].Isbn %>">Delete</a>
+            </td>
+<% } %>
+            
+        </tr>
+    </table>  
+      
+    <% include footer.ejs%>    
+</body>
+</html>
+

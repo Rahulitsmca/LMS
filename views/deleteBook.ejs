@@ -1,0 +1,36 @@
+﻿<% include header.ejs%>
+<h4>Delete a Book</h4>
+<hr />
+<form method="delete" action="/delete">    
+    <dl class="dl-horizontal">
+        <dt>Isbn </dt>
+        <dd>             
+         <input type="text" name="Isbn" style="border:none" readonly="true" placeholder="ISBN" required title="<%=Books.Isbn%>" value="<%=Books.Isbn %>" />
+        </dd>
+        <dt>Title </dt>
+        <dd><%=Books.Title %>
+        </dd>
+        <dt>Author </dt>
+        <dd><%=Books.Author %>
+        </dd>
+        <dt>Publisher </dt>
+        <dd><%=Books.Publisher %>
+        </dd>        
+        <dt>Publication Date </dt>
+        <dd><%=Books.PublicationDate.getFullYear()+'-'+((Books.PublicationDate.getMonth()*1+1)>9?(Books.PublicationDate.getMonth()*1+1):'0'+(Books.PublicationDate.getMonth()*1+1))+'-'+Books.PublicationDate.getDate() %></span>
+        </dd>
+        <dt>Genre </dt>
+        <dd><%=Books.Genre %>
+        </dd>
+        <dt>Price </dt>
+        <dd><%=Books.Price %>
+        </dd>
+    </dl>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="delete" class="btn btn-default" />
+        </div>
+    </div>
+    <a href="/">Back To List</a>
+</form>
+<% include footer.ejs%>
